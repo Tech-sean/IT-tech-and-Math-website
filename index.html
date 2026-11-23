@@ -1,0 +1,1016 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Math&TechEngineer | Mathematics, Technology & Engineering</title>
+
+    <meta name="description" content="Math&TechEngineer offers mathematics, technology and engineering-related services in Namibia.">
+
+    <style>
+        /* GENERAL SETTINGS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary: #0756a5;
+            --secondary: #00a6a6;
+            --dark: #10243a;
+            --light: #f4f8fc;
+            --white: #ffffff;
+            --text: #333333;
+            --card: #ffffff;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+            transition: 0.3s;
+        }
+
+        body.dark {
+            --light: #101a29;
+            --white: #18283b;
+            --text: #f1f5f9;
+            --card: #1d3045;
+            --dark: #071321;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* NAVIGATION BAR */
+        header {
+            background: var(--white);
+            padding: 15px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        nav a {
+            font-weight: bold;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--secondary);
+        }
+
+        .menu-btn {
+            display: none;
+            font-size: 27px;
+            border: none;
+            background: none;
+            color: var(--text);
+            cursor: pointer;
+        }
+
+        .theme-btn {
+            border: none;
+            background: var(--primary);
+            color: white;
+            padding: 9px 13px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        /* HOME SECTION */
+        .hero {
+            min-height: 570px;
+            padding: 100px 7%;
+            display: flex;
+            align-items: center;
+            background:
+                linear-gradient(120deg, rgba(5,25,55,0.95),
+                rgba(0,90,150,0.82)),
+                url("https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1600&q=85");
+
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            animation: appear 1.2s ease;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #39d5d5;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 13px 25px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* GENERAL SECTION */
+        section {
+            padding: 75px 7%;
+            scroll-margin-top: 75px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            color: var(--primary);
+        }
+
+        .section-title p {
+            margin-top: 10px;
+        }
+
+        /* ABOUT SECTION */
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 45px;
+            align-items: center;
+        }
+
+        .about img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        .about h2 {
+            color: var(--primary);
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .about p {
+            margin-bottom: 15px;
+        }
+
+        /* SERVICES SECTION */
+        .services {
+            background: var(--white);
+        }
+
+        .service-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .service-card {
+            background: var(--card);
+            padding: 30px 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .service-card .icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .service-card h3 {
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        /* WHY CHOOSE US */
+        .why-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .why-card {
+            background: var(--card);
+            padding: 25px;
+            border-left: 5px solid var(--secondary);
+            border-radius: 7px;
+        }
+
+        .why-card h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        /* CALL TO ACTION */
+        .cta {
+            text-align: center;
+            background: linear-gradient(120deg, #0756a5, #00a6a6);
+            color: white;
+        }
+
+        .cta h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            margin-bottom: 25px;
+        }
+
+        .cta .btn {
+            background: white;
+            color: var(--primary);
+        }
+
+        /* CONTACT SECTION */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .contact-info {
+            background: var(--card);
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        .contact-info h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            margin: 18px 0;
+            overflow-wrap: anywhere;
+        }
+
+        .contact-info strong {
+            color: var(--secondary);
+        }
+
+        form {
+            background: var(--card);
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        form h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 13px;
+            margin-bottom: 15px;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            font-size: 15px;
+            font-family: Arial, sans-serif;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 130px;
+        }
+
+        input:focus, textarea:focus {
+            outline: 2px solid var(--secondary);
+        }
+
+        /* FOOTER */
+        footer {
+            background: #071a2e;
+            color: white;
+            text-align: center;
+            padding: 30px 15px;
+        }
+
+        footer p {
+            margin: 7px;
+        }
+
+        .social-links {
+            margin: 15px;
+        }
+
+        .social-links a {
+            margin: 0 10px;
+            color: #39d5d5;
+        }
+
+        /* WHATSAPP BUTTON */
+        .whatsapp {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            background: #25d366;
+            color: white;
+            width: 58px;
+            height: 58px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            font-size: 28px;
+            z-index: 999;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.25);
+        }
+
+        /* BACK TO TOP */
+        #topBtn {
+            position: fixed;
+            bottom: 90px;
+            right: 27px;
+            background: var(--primary);
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: none;
+            z-index: 999;
+        }
+
+        /* ANIMATIONS */
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* MOBILE RESPONSIVENESS */
+        @media (max-width: 850px) {
+            nav {
+                gap: 12px;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .service-container,
+            .why-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 650px) {
+            header {
+                flex-wrap: wrap;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                padding: 20px 0;
+            }
+
+            nav.active {
+                display: flex;
+            }
+
+            .hero {
+                min-height: 500px;
+                padding: 75px 7%;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .about,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .service-container,
+            .why-container {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title h2 {
+                font-size: 27px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <header>
+        <a href="#home" class="logo">
+            Math<span>&</span>TechEngineer
+        </a>
+
+        <button class="menu-btn" id="menuBtn"
+                aria-label="Open navigation"
+                aria-expanded="false">
+            ☰
+        </button>
+
+        <nav id="navbar">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#why">Why Choose Us</a>
+            <a href="#contact">Contact</a>
+
+            <button class="theme-btn" id="themeBtn">
+                🌙 Dark Mode
+            </button>
+        </nav>
+    </header>
+
+
+    <!-- HOME SECTION -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+
+            <h1>
+                Welcome to <span>Math&TechEngineer</span>
+            </h1>
+
+            <p>
+                Empowering minds through Mathematics,
+                Technology and Engineering solutions.
+                We turn ideas into knowledge and
+                knowledge into solutions.
+            </p>
+
+            <a href="#services" class="btn">
+                Explore Our Services
+            </a>
+
+            <a href="#contact" class="btn">
+                Contact Us
+            </a>
+
+        </div>
+    </section>
+
+
+    <!-- ABOUT SECTION -->
+    <section id="about">
+
+        <div class="about">
+
+            <div>
+                <h2>About Math&TechEngineer</h2>
+
+                <p>
+                    Math&TechEngineer is a business focused
+                    on providing mathematics, technology
+                    and engineering-related services.
+                </p>
+
+                <p>
+                    Our aim is to help individuals,
+                    students and businesses solve problems
+                    through knowledge, creativity and
+                    modern technology.
+                </p>
+
+                <p>
+                    We believe that mathematics,
+                    technology and engineering are
+                    important tools for innovation and
+                    development.
+                </p>
+
+                <a href="#contact" class="btn">
+                    Work With Us
+                </a>
+            </div>
+
+            <div>
+                <img
+                    src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=900&q=85"
+                    alt="Technology and teamwork">
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SERVICES SECTION -->
+    <section class="services" id="services">
+
+        <div class="section-title">
+            <h2>Our Services</h2>
+
+            <p>
+                Discover what Math&TechEngineer can offer you.
+            </p>
+        </div>
+
+        <div class="service-container">
+
+            <div class="service-card">
+                <div class="icon">📐</div>
+
+                <h3>Mathematics</h3>
+
+                <p>
+                    Mathematics tutoring, problem-solving,
+                    statistics, algebra, geometry and
+                    examination preparation.
+                </p>
+            </div>
+
+
+            <div class="service-card">
+                <div class="icon">💻</div>
+
+                <h3>Web Development</h3>
+
+                <p>
+                    Website design, HTML, CSS, JavaScript,
+                    responsive websites and basic web
+                    development solutions.
+                </p>
+            </div>
+
+
+            <div class="service-card">
+                <div class="icon">⚙️</div>
+
+                <h3>Engineering Solutions</h3>
+
+                <p>
+                    Technical problem-solving, engineering
+                    concepts, calculations and innovative
+                    solutions.
+                </p>
+            </div>
+
+
+            <div class="service-card">
+                <div class="icon">🖥️</div>
+
+                <h3>IT Support</h3>
+
+                <p>
+                    Computer assistance, software support,
+                    troubleshooting and basic IT solutions.
+                </p>
+            </div>
+
+
+            <div class="service-card">
+                <div class="icon">📊</div>
+
+                <h3>Data & Statistics</h3>
+
+                <p>
+                    Data analysis, statistical calculations,
+                    data presentation and interpretation.
+                </p>
+            </div>
+
+
+            <div class="service-card">
+                <div class="icon">🎓</div>
+
+                <h3>Educational Support</h3>
+
+                <p>
+                    Learning materials, academic guidance,
+                    mathematics resources and technology
+                    education.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- WHY CHOOSE US -->
+    <section id="why">
+
+        <div class="section-title">
+            <h2>Why Choose Math&TechEngineer?</h2>
+
+            <p>
+                We are committed to quality, creativity
+                and continuous improvement.
+            </p>
+        </div>
+
+        <div class="why-container">
+
+            <div class="why-card">
+                <h3>✓ Quality Services</h3>
+
+                <p>
+                    We aim to provide reliable and
+                    professional solutions.
+                </p>
+            </div>
+
+            <div class="why-card">
+                <h3>✓ Innovation</h3>
+
+                <p>
+                    We embrace technology and creative
+                    ways of solving problems.
+                </p>
+            </div>
+
+            <div class="why-card">
+                <h3>✓ Customer Satisfaction</h3>
+
+                <p>
+                    We value our customers and their
+                    needs.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CALL TO ACTION -->
+    <section class="cta">
+
+        <h2>Have a Project or Problem to Solve?</h2>
+
+        <p>
+            Let Math&TechEngineer help you turn your
+            ideas into practical solutions.
+        </p>
+
+        <a href="#contact" class="btn">
+            Get In Touch Today
+        </a>
+
+    </section>
+
+
+    <!-- CONTACT SECTION -->
+    <section id="contact">
+
+        <div class="section-title">
+            <h2>Contact Us</h2>
+
+            <p>
+                We would love to hear from you.
+                Get in touch with us today.
+            </p>
+        </div>
+
+        <div class="contact-container">
+
+            <!-- CONTACT DETAILS -->
+            <div class="contact-info">
+
+                <h3>Our Contact Information</h3>
+
+                <p>
+                    <strong>Business:</strong><br>
+                    Math&TechEngineer
+                </p>
+
+                <p>
+                    <strong>Phone:</strong><br>
+                    <a href="tel:0815613869">0815613869</a>
+                </p>
+
+                <p>
+                    <strong>Email:</strong><br>
+                    <a href="mailto:tntambanga@gmail.com">
+                        tntambanga@gmail.com
+                    </a>
+                </p>
+
+                <p>
+                    <strong>Address:</strong><br>
+                    No.1930, Windhoek, Namibia
+                </p>
+
+                <p>
+                    <strong>Location:</strong><br>
+                    Windhoek, Namibia
+                </p>
+
+                <a
+                    href="https://www.google.com/maps/search/?api=1&query=No.1930%2C+Windhoek%2C+Namibia"
+                    target="_blank"
+                    rel="noopener"
+                    class="btn">
+                    View Location
+                </a>
+
+            </div>
+
+
+            <!-- CONTACT FORM -->
+            <form id="contactForm">
+
+                <h3>Send Us a Message</h3>
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Your Full Name"
+                    required>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Your Email Address"
+                    required>
+
+                <input
+                    type="text"
+                    id="subject"
+                    placeholder="Message Subject"
+                    required>
+
+                <textarea
+                    id="message"
+                    placeholder="Write your message here..."
+                    required></textarea>
+
+                <button type="submit" class="btn">
+                    Send Message
+                </button>
+
+                <p id="formStatus" aria-live="polite"></p>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <h2>Math&TechEngineer</h2>
+
+        <p>
+            Mathematics | Technology | Engineering
+        </p>
+
+        <div class="social-links">
+            <a href="mailto:tntambanga@gmail.com">
+                Email Us
+            </a>
+
+            <a href="tel:0815613869">
+                Call Us
+            </a>
+        </div>
+
+        <p>
+            &copy; <span id="year"></span>
+            Math&TechEngineer. All Rights Reserved.
+        </p>
+
+        <p>
+            Designed with innovation and creativity.
+        </p>
+
+    </footer>
+
+
+    <!-- WHATSAPP BUTTON -->
+    <a
+        class="whatsapp"
+        href="https://wa.me/264815613869"
+        target="_blank"
+        rel="noopener"
+        aria-label="Chat with us on WhatsApp">
+        ☎
+    </a>
+
+
+    <!-- BACK TO TOP BUTTON -->
+    <button id="topBtn" aria-label="Back to top">
+        ↑
+    </button>
+
+
+    <!-- JAVASCRIPT -->
+    <script>
+
+        // MOBILE NAVIGATION MENU
+
+        const menuBtn = document.getElementById("menuBtn");
+        const navbar = document.getElementById("navbar");
+
+        menuBtn.addEventListener("click", function() {
+
+            navbar.classList.toggle("active");
+
+            const isOpen = navbar.classList.contains("active");
+
+            menuBtn.setAttribute("aria-expanded", isOpen);
+
+            menuBtn.textContent = isOpen ? "✕" : "☰";
+
+        });
+
+
+        // CLOSE MENU WHEN A LINK IS CLICKED
+
+        const navLinks = document.querySelectorAll("#navbar a");
+
+        navLinks.forEach(function(link) {
+
+            link.addEventListener("click", function() {
+
+                navbar.classList.remove("active");
+
+                menuBtn.textContent = "☰";
+
+                menuBtn.setAttribute("aria-expanded", "false");
+
+            });
+
+        });
+
+
+        // DARK MODE
+
+        const themeBtn = document.getElementById("themeBtn");
+
+        themeBtn.addEventListener("click", function() {
+
+            document.body.classList.toggle("dark");
+
+            const darkMode =
+                document.body.classList.contains("dark");
+
+            themeBtn.textContent =
+                darkMode ? "☀️ Light Mode" : "🌙 Dark Mode";
+
+        });
+
+
+        // CONTACT FORM
+
+        const contactForm =
+            document.getElementById("contactForm");
+
+        contactForm.addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            const name =
+                document.getElementById("name").value.trim();
+
+            const email =
+                document.getElementById("email").value.trim();
+
+            const subject =
+                document.getElementById("subject").value.trim();
+
+            const message =
+                document.getElementById("message").value.trim();
+
+            const status =
+                document.getElementById("formStatus");
+
+            if (!name || !email || !subject || !message) {
+
+                status.textContent =
+                    "Please complete all the fields.";
+
+                return;
+
+            }
+
+            const emailAddress = "tntambanga@gmail.com";
+
+            const emailSubject =
+                encodeURIComponent(subject);
+
+            const emailBody =
+                encodeURIComponent(
+                    "Name: " + name +
+                    "\nEmail: " + email +
+                    "\n\nMessage:\n" + message
+                );
+
+            status.textContent =
+                "Opening your email application...";
+
+            window.location.href =
+                "mailto:" + emailAddress +
+                "?subject=" + emailSubject +
+                "&body=" + emailBody;
+
+        });
+
+
+        // BACK TO TOP BUTTON
+
+        const topBtn = document.getElementById("topBtn");
+
+        window.addEventListener("scroll", function() {
+
+            if (window.scrollY > 300) {
+
+                topBtn.style.display = "block";
+
+            } else {
+
+                topBtn.style.display = "none";
+
+            }
+
+        });
+
+        topBtn.addEventListener("click", function() {
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        });
+
+
+        // AUTOMATIC COPYRIGHT YEAR
+
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+
+    </script>
+
+</body>
+</html>
